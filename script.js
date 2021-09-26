@@ -13,3 +13,22 @@ function computerPlay(){ //randomly seclects rock, paper or scissor
     return computerSelection;
 }
 computerPlay();
+function userPlay(){ // takes case-insestive valid input from users.
+    
+ 
+        let userInput1 = prompt("What's your move?");
+        let userInput = userInput1.toLowerCase();
+        
+        for (let i = 0; i !=1; ){
+            if (userInput == 'rock' || userInput == 'paper' || userInput == 'scissor'){
+                i = 1;            
+            } else{
+                alert('Invalid move. Please enter valid move again');
+                userInput1 = prompt("What's your move?");
+                userInput = userInput1.toLowerCase();
+            }
+            
+        }
+        console.log(userInput);
+}
+userPlay();
