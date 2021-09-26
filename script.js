@@ -1,34 +1,47 @@
 function computerPlay(){ //randomly seclects rock, paper or scissor
     let randomInteger = Math.floor(Math.random()*3+1) //generates random number between 1 and 3
-    console.log(randomInteger);
-    let computerSelection;
+    // console.log(randomInteger);
+    let computerMove;
     if (randomInteger === 1){
-        computerSelection = 'rock';
+        computerMove = 'rock';
     } else if (randomInteger === 2){
-        computerSelection = 'paper';
+        computerMove = 'paper';
     } else {
-        computerSelection ="scissor";
+        computerMove ="scissor";
     }
-    console.log(computerSelection);
-    return computerSelection;
+   // console.log(computerMove);
+    return computerMove;
 }
-computerPlay();
+
 function userPlay(){ // takes case-insestive valid input from users.
     
  
-        let userInput1 = prompt("What's your move?");
-        let userInput = userInput1.toLowerCase();
+        let userMove1 = prompt("What's your move?");
+        let userMove = userMove1.toLowerCase();
         
         for (let i = 0; i !=1; ){
-            if (userInput == 'rock' || userInput == 'paper' || userInput == 'scissor'){
+            if (userMove == 'rock' || userMove == 'paper' || userMove == 'scissor'){
                 i = 1;            
             } else{
                 alert('Invalid move. Please enter valid move again');
-                userInput1 = prompt("What's your move?");
-                userInput = userInput1.toLowerCase();
+                userMove1 = prompt("What's your move?");
+                userMove = userMove1.toLowerCase();
             }
             
         }
-        console.log(userInput);
+        // console.log(userMove);
+        return userMove;
 }
-userPlay();
+
+function singleRound(computerSelection, playerSelection){ // plays single round or rock, paper and scissor
+    if(playerSelection > computerSelection){
+        alert(`You win! ${playerSelection} beats ${computerSelection}.`);
+    } else if (playerSelection < computerSelection){
+        alert(`You loose! ${computerSelection} beats ${playerSelection}.`);
+    } else{
+        alert(`Draw! Both chose ${playerSelection}.`);
+    }
+}
+let computerSelection = computerPlay();
+let playerSelection = userPlay();
+singleRound(computerSelection,playerSelection);
