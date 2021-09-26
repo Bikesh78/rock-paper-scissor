@@ -33,15 +33,44 @@ function userPlay(){ // takes case-insestive valid input from users.
         return userMove;
 }
 
-function singleRound(computerSelection, playerSelection){ // plays single round or rock, paper and scissor
-    if(playerSelection > computerSelection){
-        alert(`You win! ${playerSelection} beats ${computerSelection}.`);
-    } else if (playerSelection < computerSelection){
-        alert(`You loose! ${computerSelection} beats ${playerSelection}.`);
-    } else{
-        alert(`Draw! Both chose ${playerSelection}.`);
+
+function game(){
+    let computerScore = 0;
+    let userScore =0;
+    let draw = 0;
+    for (i = 0; i < 5; i++){
+        
+        function singleRound(computerSelection, playerSelection){ // plays single round or rock, paper and scissor
+            if(playerSelection > computerSelection){
+                alert(`You win! ${playerSelection} beats ${computerSelection}.`);
+                userScore++;
+            } else if (playerSelection < computerSelection){
+                alert(`You loose! ${computerSelection} beats ${playerSelection}.`);
+                computerScore++;
+            } else{
+                alert(`Draw! Both chose ${playerSelection}.`);
+                draw++;
+            }
+        }
+        let computerSelection = computerPlay();
+        let playerSelection = userPlay();
+        singleRound(computerSelection,playerSelection);
+    }
+    if (userScore > computerScore){
+        alert(`Congratulation!!! You won.
+        Your Score: ${userScore}
+        Computer's Score : ${computerScore}
+        Draw: ${draw}`);
+    } else if (userScore < computerScore){
+        alert(`Sorry!!! The computer won.
+        Your Score: ${userScore}
+        Computer's Score : ${computerScore}
+        Draw: ${draw}`);
+    } else {
+        alert(`It's a tie.
+        Your Score: ${userScore}
+        Computer's Score : ${computerScore}
+        Draw: ${draw}`);
     }
 }
-let computerSelection = computerPlay();
-let playerSelection = userPlay();
-singleRound(computerSelection,playerSelection);
+game();
