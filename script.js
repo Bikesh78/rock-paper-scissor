@@ -41,14 +41,14 @@ function game(){
     for (i = 0; i < 5; i++){
         
         function singleRound(computerSelection, playerSelection){ // plays single round or rock, paper and scissor
-            if(playerSelection > computerSelection){
+            if(playerSelection === 'rock' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'rock'){
                 alert(`You win! ${playerSelection} beats ${computerSelection}.`);
                 userScore++;
-            } else if (playerSelection < computerSelection){
+            } else if (computerSelection === 'rock' && playerSelection === 'scissor' || computerSelection === 'scissor' && playerSelection === 'paper' || computerSelection === 'paper' && playerSelection === 'rock'){
                 alert(`You loose! ${computerSelection} beats ${playerSelection}.`);
                 computerScore++;
             } else{
-                alert(`Draw! Both chose ${playerSelection}.`);
+                alert(`Draw! Both chose ${computerSelection}.`);
                 draw++;
             }
         }
