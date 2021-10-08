@@ -1,16 +1,23 @@
 const btn = document.querySelectorAll('button');
-btn.forEach(button => button.addEventListener('click', playRound));
-function playRound(e){
-    console.log(e.target.id);
+btn.forEach(button => {
+    button.addEventListener('click', () =>{
+    console.log(button.id);
+    playRound(button.id);
+    });
+});
+function playRound(playerSelection){
+    const computerSelection =computerPlay();
+    console.log(computerSelection);
 }
 
 function computerPlay(){ //randomly seclects rock, paper or scissor
-    const computerMove = ['rock','paper','scissor'];
+    const move = ['rock','paper','scissor'];
     let randomInteger = Math.floor(Math.random()*3+1) //generates random number between 1 and 3
     // console.log(randomInteger);
-    
+    const computerMove = move[randomInteger -1];
     return computerMove;
 }
+
 
 /*
 function userPlay(){ // takes case-insestive valid input from users.
