@@ -14,6 +14,13 @@ btn.forEach(button => {
     playRound(button.id);
     });
 });
+function computerPlay(){ //randomly seclects rock, paper or scissor
+    const move = ['rock','paper','scissor'];
+    let randomInteger = Math.floor(Math.random()*3+1) //generates random number between 1 and 3
+    // console.log(randomInteger);
+    const computerMove = move[randomInteger -1];
+    return computerMove;
+}
 let userScore = 0;
 let computerScore = 0;
 
@@ -75,13 +82,7 @@ function tryAgain(){
 }
   
 
-function computerPlay(){ //randomly seclects rock, paper or scissor
-    const move = ['rock','paper','scissor'];
-    let randomInteger = Math.floor(Math.random()*3+1) //generates random number between 1 and 3
-    // console.log(randomInteger);
-    const computerMove = move[randomInteger -1];
-    return computerMove;
-}
+
 
 
 /*
