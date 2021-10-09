@@ -5,10 +5,37 @@ btn.forEach(button => {
     playRound(button.id);
     });
 });
-function playRound(playerSelection){
-    const computerSelection =computerPlay();
-    console.log(computerSelection);
+let userScore = 0;
+let computerScore = 0;
+for(let i=0; i<5; i++){
+    function playRound(playerSelection){
+        const computerSelection =computerPlay();
+        console.log(computerSelection);
+        if(playerSelection === 'rock' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'rock'){
+            console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+            userScore++;
+        
+        } else if (computerSelection === 'rock' && playerSelection === 'scissor' || computerSelection === 'scissor' && playerSelection === 'paper' || computerSelection === 'paper' && playerSelection === 'rock'){
+            console.log(`You loose! ${computerSelection} beats ${playerSelection}.`);
+            computerScore++;
+        }else{
+            console.log(`Draw! Both chose ${computerSelection}.`);
+        }
+        if(userScore === 5){
+            console.log(`Congratulaion! You won.
+            Your Score: ${userScore};
+            Computer's Score: ${computerScore};`)
+        } else if(computerScore === 5){
+            console.log(`Sorry! You lost.
+            Your Score: ${userScore};
+            Computer's Score: ${computerScore};`)
+        }
+
+    }
+    
+    
 }
+
 
 function computerPlay(){ //randomly seclects rock, paper or scissor
     const move = ['rock','paper','scissor'];
