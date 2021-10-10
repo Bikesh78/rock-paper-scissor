@@ -27,38 +27,11 @@ let computerScore = 0;
 const result = document.createElement('div');
 
 
-<<<<<<< HEAD
-function game(){
-    let computerScore = 0;
-    let userScore =0;
-    let draw = 0;
-    for (i = 0; i < 5; i++){
-        
-        function singleRound(computerSelection, playerSelection){ // plays single round or rock, paper and scissor
-            if(playerSelection === 'rock' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'rock'){
-                alert(`You win! ${playerSelection} beats ${computerSelection}.`);
-                userScore++;
-            } else if (computerSelection === 'rock' && playerSelection === 'scissor' || computerSelection === 'scissor' && playerSelection === 'paper' || computerSelection === 'paper' && playerSelection === 'rock'){
-                alert(`You loose! ${computerSelection} beats ${playerSelection}.`);
-                computerScore++;
-            } else{
-                alert(`Draw! Both chose ${computerSelection}.`);
-                draw++;
-            }
-        }
-        let computerSelection = computerPlay();
-        let playerSelection = userPlay();
-        singleRound(computerSelection,playerSelection);
-    }
-    if (userScore > computerScore){
-        alert(`Congratulation!!! You won.
-=======
 function playRound(playerSelection){
     const computerSelection =computerPlay();  
     if(playerSelection === 'rock' && computerSelection === 'scissor' || playerSelection === 'scissor' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'rock'){
         userScore++;
         result.textContent = `You win! ${playerSelection} beats ${computerSelection}.
->>>>>>> rps-ui
         Your Score: ${userScore}
         Computer's Score: ${computerScore}`;
     } else if (computerSelection === 'rock' && playerSelection === 'scissor' || computerSelection === 'scissor' && playerSelection === 'paper' || computerSelection === 'paper' && playerSelection === 'rock'){
